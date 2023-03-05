@@ -27,7 +27,6 @@ export class ImageGallery extends Component {
         isLoading: true,
       });
       const data = await fetchImages(searchQuery);
-
       this.setState({
         images: data.hits,
         isBtnActive: data.totalHits > data.hits.length,
