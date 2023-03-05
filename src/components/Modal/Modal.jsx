@@ -1,3 +1,4 @@
+import { createPortal } from 'react-dom';
 import { Component } from 'react';
 import { Overlay, ModalContainer } from './Modal.styled';
 
@@ -21,7 +22,7 @@ export class Modal extends Component {
     }
   };
   render() {
-    return (
+    return createPortal(
       <Overlay onClick={this.onBackDropClick}>
         <ModalContainer>
           <img
@@ -29,7 +30,8 @@ export class Modal extends Component {
             alt={this.props.modalImage.tags}
           />
         </ModalContainer>
-      </Overlay>
+      </Overlay>,
+      document.querySelector('#modal-root')
     );
   }
 }
