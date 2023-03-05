@@ -1,5 +1,6 @@
 import { createPortal } from 'react-dom';
 import { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Overlay, ModalContainer } from './Modal.styled';
 
 export class Modal extends Component {
@@ -35,3 +36,11 @@ export class Modal extends Component {
     );
   }
 }
+
+Modal.propTypes = {
+  onClose: PropTypes.func.isRequired,
+  modalImage: PropTypes.shape({
+    largeImageURL: PropTypes.string.isRequired,
+    tags: PropTypes.string.isRequired,
+  }),
+};
